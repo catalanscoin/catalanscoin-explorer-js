@@ -32,7 +32,7 @@ function checkTxn(transactionResponse, privateKey, address, privateKeyType) {
     } else if (address.length != 98 || (addrHex.slice(-s) !== cn_fast_hash(addrHex.slice(0,-s)).slice(0,s))) {
         results.error = "Bad address";
     } else if (privateKeyType === 'view' && addrHex.slice(m-2,e-2) !== sec_key_to_pub(privateKey)) {
-	results.error = "Secret View key does not match address. "+addrHex.slice(m,e)+"\n"+sec_key_to_pub(privateKey);
+	results.error = "Secret View key does not match address. ";
     } else if (hash.length !== 64 || !validHex(hash)){
         results.error = "Invalid TXN Hash";
     } else  {
